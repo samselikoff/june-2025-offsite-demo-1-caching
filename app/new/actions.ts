@@ -2,7 +2,7 @@
 
 import { db } from '@/db';
 import { users } from '@/db/schema';
-// import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -16,5 +16,5 @@ export async function createUser(formData: FormData) {
 
   console.log(user);
 
-  // redirect(`/users/${user.id}`);
+  redirect(`/users/${user.id}`);
 }
