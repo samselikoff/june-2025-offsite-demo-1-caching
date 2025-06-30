@@ -16,5 +16,6 @@ export async function createUser(formData: FormData) {
 
   console.log(user);
 
-  redirect(`/users/${user.id}`);
+  redirect(`/`);
+  // redirect(`/users/${user.id}`);
 }
