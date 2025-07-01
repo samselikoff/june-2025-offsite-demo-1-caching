@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    dynamicIO: true,
+    useCache: true,
+    clientSegmentCache: true,
+  },
+  // devIndicators: false,
 };
 
 export default nextConfig;
