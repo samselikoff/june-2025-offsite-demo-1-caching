@@ -1,26 +1,34 @@
-import { createPlaylist } from './actions';
+import { Poster } from '../_components/Poster';
 
-export default function Page() {
+export default async function Home() {
+  await fetch('https://httpbin.org/delay/1');
+
   return (
     <div>
-      <p className="text-3xl">New playlist</p>
-      <form action={createPlaylist} className="space-y-4 mt-4">
-        <label className="block">
-          Name
-          <input
-            className="border px-2 py-1 block rounded"
-            type="text"
-            name="name"
-          />
-        </label>
+      <h1 className="text-3xl font-bold">New</h1>
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white rounded px-3 py-2 font-medium"
-        >
-          Save
-        </button>
-      </form>
+      <div className="mt-8 space-y-8">
+        <section>
+          <p>Latest Songs</p>
+          <div className="grid text-blue-500 grid-cols-3 gap-4 mt-2">
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+          </div>
+        </section>
+
+        <section>
+          <p>New Releases</p>
+          <div className="grid grid-cols-6 gap-4 mt-2">
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+            <Poster title="a" color="#2b7fff" />
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
