@@ -99,5 +99,3 @@ async function PlaylistNav() {
   {playlist.name}
 </Link>; */
 }
-
-export const dynamic = 'force-dynamic';
