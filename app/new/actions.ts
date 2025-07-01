@@ -1,21 +1,23 @@
 'use server';
 
 import { db } from '@/db';
-import { users } from '@/db/schema';
+import { playlists } from '@/db/schema';
+import { revalidatePath, revalidateTag } from 'next/cache';
 // import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const schema = z.object({
   name: z.string(),
-  age: z.coerce.number(),
 });
 
-export async function createUser(formData: FormData) {
+export async function createPlaylist(formData: FormData) {
   const data = schema.parse(Object.fromEntries(formData));
-  const [user] = await db.insert(users).values(data).returning();
+  const [playlist] = await db.insert(playlists).values(data).returning();
 
-  console.log(user);
+  // console.log(playlist);
 
+  revalidateTag('playlist:all');
+  // revalidatePath('/new', 'layout');
   // redirect(`/`);
   // redirect(`/users/${user.id}`);
 }
